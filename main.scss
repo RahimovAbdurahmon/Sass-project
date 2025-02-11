@@ -53,6 +53,16 @@ $activeColor: #b5ece6;
 }
 .main{
     grid-column: 2 / 6;
+    .mainContent{
+        max-width: 1100px;
+        margin: auto;
+        .nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 50px 20px;
+        }
+    }
 }
 .navbar{
     padding: 20px;
