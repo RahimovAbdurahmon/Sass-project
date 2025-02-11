@@ -1,5 +1,9 @@
 let box = document.querySelector(".box")
 
+let modalInfo = document.querySelector(".modalInfo")
+let nameInfo = document.querySelector(".nameInfo")
+let statusInfo = document.querySelector(".statusInfo")
+
 let data = [
     {
         id: 1,
@@ -20,6 +24,18 @@ let data = [
         status: false
     }
 ]
+
+// info
+modalInfo.onclick = () => {
+    modalInfo.close();
+}
+const infoUser = (id) => {
+    modalInfo.showModal();
+    const user = data.find((elem) => elem.id === id);
+    nameInfo.innerHTML = user.name;
+    statusInfo.innerHTML = user.status ? "Active" : "Inactive"
+    user.status ? statusInfo.classList.add("activeStatusInfo") : statusInfo.classList.add("inactiveStatusInfo")
+}
 
 // delete
 const deleteTodos = (id) => {
@@ -56,6 +72,9 @@ const getData = (data) => {
         let btnInfo = document.createElement("button")
         btnInfo.classList.add("btnInfo")
         btnInfo.innerHTML = "Info"
+        btnInfo.onclick = () => {
+            infoUser(elem.id);
+        }
 
         let profile = document.createElement("div")
         profile.classList.add("actions")
