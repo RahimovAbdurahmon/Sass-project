@@ -21,6 +21,13 @@ let data = [
     }
 ]
 
+// delete
+const deleteTodos = (id) => {
+    console.log(id);
+    data = data.filter((elem) => elem.id !== id)
+    getData(data)
+}
+
 const getData = (data) => {
     box.innerHTML = ""
     data.forEach((elem) => {
@@ -38,6 +45,9 @@ const getData = (data) => {
         let btnDelete = document.createElement("button")
         btnDelete.classList.add("btnDelete")
         btnDelete.innerHTML = "Delete"
+        btnDelete.onclick = () => {
+            deleteTodos(elem.id);
+        }
 
         let btnEdit = document.createElement("button")
         btnEdit.classList.add("btnEdit")
