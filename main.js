@@ -10,6 +10,11 @@ let modalAdd = document.querySelector(".modalAdd")
 let modalAddContent = document.querySelector(".modalAddContent")
 let formAdd = document.querySelector(".formAdd")
 
+// edit
+let modalEdit = document.querySelector(".modalEdit")
+let modalEditContent = document.querySelector(".modalEditContent")
+let formEdit = document.querySelector(".formEdit")
+
 let data = [
     {
         id: 1,
@@ -61,6 +66,30 @@ formAdd.onsubmit = (e) => {
     modalAdd.close();
 }
 
+// edit
+let idx = null;
+const modalEditOpen = (id) => {
+    modalEdit.showModal();
+    const user = data.find((e) => e.id === id)
+    formEdit["name"].value = user.name
+    formEdit["status"].value = user.status ? "active" : "inactive"
+    idx = user.id;
+}
+formEdit.onsubmit = (event) => {
+    event.preventDefault();
+    const newUpdatedTodos = {
+        id: idx,
+        avatar: "avatar.avif",
+        name: event.target.name.value,
+        status: formEdit["status"].value == "active" ? true : false
+    }
+    data = data.map((elem) => {
+        return elem.id == idx ? elem = newUpdatedTodos : elem
+    })
+    getData(data)
+    modalEdit.close();
+}
+
 // delete
 const deleteTodos = (id) => {
     console.log(id);
@@ -96,6 +125,9 @@ const getData = (data) => {
         let btnEdit = document.createElement("button")
         btnEdit.classList.add("btnEdit")
         btnEdit.innerHTML = "Edit"
+        btnEdit.onclick = () => {
+            modalEditOpen(elem.id);
+        }
 
         let btnInfo = document.createElement("button")
         btnInfo.classList.add("btnInfo")
