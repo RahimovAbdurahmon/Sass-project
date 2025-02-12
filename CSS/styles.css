@@ -90,19 +90,19 @@ button{
   z-index: 0;
 }
 
-.input::placeholder {
+.inputSearchGlobal::placeholder {
   color: black;
 }
 
-.input:hover {
+.inputSearchGlobal:hover {
   box-shadow: 0 0 0 2.5px #2f303d, 0px 0px 25px -15px #000;
 }
 
-.input:active {
+.inputSearchGlobal:active {
   transform: scale(0.95);
 }
 
-.input:focus {
+.inputSearchGlobal:focus {
   box-shadow: 0 0 0 2.5px #2f303d;
 }
 
