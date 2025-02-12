@@ -22,19 +22,19 @@ let selectStatus = document.querySelector(".selectStatus");
 let data = [
   {
     id: 1,
-    avatar: "avatar.avif",
+    avatar: "/Images/avatar.avif",
     name: "John",
     status: true,
   },
   {
     id: 2,
-    avatar: "avatar.avif",
+    avatar: "/Images/avatar.avif",
     name: "Smith",
     status: false,
   },
   {
     id: 3,
-    avatar: "avatar.avif",
+    avatar: "/Images/avatar.avif",
     name: "Bekson",
     status: false,
   },
@@ -62,7 +62,7 @@ formAdd.onsubmit = (e) => {
   e.preventDefault();
   let newUser = {
     id: Date.now(),
-    avatar: "avatar.avif",
+    avatar: "/Images/avatar.avif",
     name: formAdd["name"].value,
     status: formAdd["status"].value == "active" ? true : false,
   };
@@ -85,7 +85,7 @@ formEdit.onsubmit = (event) => {
   event.preventDefault();
   const newUpdatedTodos = {
     id: idx,
-    avatar: "avatar.avif",
+    avatar: "/Images/avatar.avif",
     name: event.target.name.value,
     status: formEdit["status"].value == "active" ? true : false,
   };
@@ -123,11 +123,11 @@ const filterUserStatus = (statusValue) => {
       ? elem.status == false
       : elem;
   });
-  getData(data2)
+  getData(data2);
 };
 selectStatus.onclick = () => {
-    filterUserStatus(selectStatus.value)
-}
+  filterUserStatus(selectStatus.value);
+};
 
 const getData = (data) => {
   box.innerHTML = "";
@@ -148,6 +148,8 @@ const getData = (data) => {
     let avatar = document.createElement("img");
     avatar.classList.add("avatar");
     avatar.src = elem.avatar;
+    console.log(elem.avatar);
+    
 
     let btnDelete = document.createElement("button");
     btnDelete.classList.add("btnDelete");
