@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/CSS/styles.css">
     <link rel="stylesheet" href="/CSS/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/CSS/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <main id="content">
         <aside class="saiderbar">
@@ -58,7 +63,8 @@
                         </g>
                     </svg>
 
-                    <input id="query" class="inputSearchGlobal" type="search" placeholder="Search..." name="searchbar" />
+                    <input id="query" class="inputSearchGlobal" type="search" placeholder="Search..."
+                        name="searchbar" />
                 </div>
                 <aside class="right">
                     <a href="./notifications.html">
@@ -75,9 +81,146 @@
                     </a>
                 </aside>
             </nav>
-            <h1>Dashboard</h1>
+            <section id="mainContent">
+                <div class="navDashboard">
+                    <h2>Dashboard</h2>
+                </div>
+                <figure>
+                    <figcaption>
+                        <canvas id="myBarChart"></canvas>
+                        <canvas id="myLineChart"></canvas>
+                    </figcaption>
+                    <figcaption>
+                        <canvas id="myPieChart"></canvas>
+                        <canvas id="myDonutChart"></canvas>
+                    </figcaption>
+                    <figcaption>
+                        <canvas id="myRadarChart"></canvas>
+                        <canvas id="myPolarAreaChart"></canvas>
+                    </figcaption>
+                </figure>
+            </section>
         </main>
     </main>
 </body>
-<script src="./main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- <script src="/JS/dashboard.js"></script> -->
+<script>
+    const myLineChart = document.getElementById('myLineChart');
+    const myPieChart = document.getElementById('myPieChart');
+    const myBarChart = document.getElementById('myBarChart');
+    const myDonutChart = document.getElementById('myDonutChart');
+    const myRadarChart = document.getElementById('myRadarChart')
+    const myPolarAreaChart = document.getElementById('myPolarAreaChart')
+  
+    new Chart(myRadarChart, {
+      type: 'radar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+    new Chart(myPolarAreaChart, {
+      type: 'polarArea',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+    new Chart(myDonutChart, {
+      type: 'doughnut',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+    new Chart(myBarChart, {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+    new Chart(myLineChart, {
+      type: 'line',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 5
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+    new Chart(myPieChart, {
+      type: 'pie',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+
 </html>

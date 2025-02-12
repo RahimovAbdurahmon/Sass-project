@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  list-style: none;
+  text-decoration: none;
+}
+
+.navDashboard {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 0;
+}
+
+figure {
+  max-width: 1100px;
+  margin: auto;
+}
+
+figcaption {
+  display: flex;
+  justify-content: space-between;
+}
+
+canvas {
+  max-width: 540px;
+}/*# sourceMappingURL=dashboard.css.map */
