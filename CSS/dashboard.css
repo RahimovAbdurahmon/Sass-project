@@ -10,4 +10,18 @@
   max-width: 1100px;
   margin: auto;
   padding: 30px 0;
+}
+
+figure {
+  max-width: 1100px;
+  margin: auto;
+}
+
+figcaption {
+  display: flex;
+  justify-content: space-between;
+}
+
+canvas {
+  max-width: 540px;
 }/*# sourceMappingURL=dashboard.css.map */

@@ -81,13 +81,25 @@
                     </a>
                 </aside>
             </nav>
-            <div class="navDashboard">
-                <h2>Dashboard</h2>
-            </div>
-            <figure>
-                <canvas id="myLineChart" style="width: 50%;"></canvas>
-                <canvas id="myPieChart"></canvas>
-            </figure>
+            <section id="mainContent">
+                <div class="navDashboard">
+                    <h2>Dashboard</h2>
+                </div>
+                <figure>
+                    <figcaption>
+                        <canvas id="myBarChart"></canvas>
+                        <canvas id="myLineChart"></canvas>
+                    </figcaption>
+                    <figcaption>
+                        <canvas id="myPieChart"></canvas>
+                        <canvas id="myDonutChart"></canvas>
+                    </figcaption>
+                    <figcaption>
+                        <canvas id="myRadarChart"></canvas>
+                        <canvas id="myPolarAreaChart"></canvas>
+                    </figcaption>
+                </figure>
+            </section>
         </main>
     </main>
 </body>
@@ -96,7 +108,83 @@
 <script>
     const myLineChart = document.getElementById('myLineChart');
     const myPieChart = document.getElementById('myPieChart');
+    const myBarChart = document.getElementById('myBarChart');
+    const myDonutChart = document.getElementById('myDonutChart');
+    const myRadarChart = document.getElementById('myRadarChart')
+    const myPolarAreaChart = document.getElementById('myPolarAreaChart')
   
+    new Chart(myRadarChart, {
+      type: 'radar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+    new Chart(myPolarAreaChart, {
+      type: 'polarArea',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+    new Chart(myDonutChart, {
+      type: 'doughnut',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+    new Chart(myBarChart, {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
     new Chart(myLineChart, {
       type: 'line',
       data: {
