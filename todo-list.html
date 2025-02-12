@@ -59,12 +59,13 @@
                 <div class="nav">
                     <h1 class="text">Todo List</h1>
                     <div>
-                        <input type="text">
-                        <select name="" id="">
+                        <input class="inputSearch" placeholder="Search Name...">
+                        <select class="inputSearch selectStatus" name="" id="">
                             <option value="all">All</option>
                             <option value="active">Active</option>
                             <option value="inactive">Inactive</option>
                         </select>
+                        <button class="btnAddNew">Add New User</button>
                     </div>
                 </div>
                 <div class="box"></div>
@@ -88,6 +89,32 @@
                     <h1 class="statusInfo"></h1>
                 </div>
             </div>
+        </div>
+    </dialog>
+    <dialog class="modalAdd">
+        <div class="modalAddContent">
+            <!-- <div class="addContent"> -->
+
+                <form class="form formAdd">
+                    <p class="form-title">Add New User</p>
+                    <div class="input-container">
+                        <input class="inputAdd inputAddName" name="name" type="text" placeholder="Name">
+                        <span>
+                        </span>
+                    </div>
+                    <div class="input-container">
+                        <select name="status" class="inputAdd selectAddStatus" value="">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit btnAddUser">
+                        Add
+                    </button>
+                    </p>
+                </form>
+
+            <!-- </div> -->
         </div>
     </dialog>
 </body>

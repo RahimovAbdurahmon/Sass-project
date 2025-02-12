@@ -4,6 +4,12 @@ let modalInfo = document.querySelector(".modalInfo")
 let nameInfo = document.querySelector(".nameInfo")
 let statusInfo = document.querySelector(".statusInfo")
 
+// add
+let btnAddNew = document.querySelector(".btnAddNew")
+let modalAdd = document.querySelector(".modalAdd")
+let modalAddContent = document.querySelector(".modalAddContent")
+let formAdd = document.querySelector(".formAdd")
+
 let data = [
     {
         id: 1,
@@ -37,6 +43,24 @@ const infoUser = (id) => {
     user.status ? statusInfo.classList.add("activeStatusInfo") : statusInfo.classList.add("inactiveStatusInfo")
 }
 
+// add
+btnAddNew.onclick = () => {
+    modalAdd.showModal();
+}
+formAdd.onsubmit = (e) => {
+    e.preventDefault();
+    let newUser = {
+        id: Date.now(),
+        avatar: "avatar.avif",
+        name: formAdd["name"].value,
+        status: formAdd["status"].value == "active" ? true : false
+    }
+    data.push(newUser)
+    formAdd.reset();
+    getData(data);
+    modalAdd.close();
+}
+
 // delete
 const deleteTodos = (id) => {
     console.log(id);
@@ -53,6 +77,10 @@ const getData = (data) => {
         let name = document.createElement("h1")
         name.classList.add("name")
         name.innerHTML = elem.name;
+
+        let status = document.createElement("p");
+        status.innerHTML = elem.status ? "Active" : "Inactive"
+        elem.status == true ? status.classList.add("activeStatusInfo") : status.classList.add("inactiveStatusInfo")
 
         let avatar = document.createElement("img")
         avatar.classList.add("avatar")
@@ -78,10 +106,13 @@ const getData = (data) => {
 
         let profile = document.createElement("div")
         profile.classList.add("actions")
-        profile.append(avatar, name)
-
+        
+        let nameContent = document.createElement("div")
+        nameContent.append(name, status)
+        
         let actions = document.createElement("div")
         actions.classList.add("actions")
+        profile.append(avatar, nameContent)
         actions.append(btnDelete, btnEdit, btnInfo)
         card.append(profile, actions);
         box.appendChild(card);
