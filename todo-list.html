@@ -15,7 +15,7 @@
 <body>
     <main id="content">
         <aside class="saiderbar">
-            <img src="./logo.png" alt="Logo">
+            <img src="./logo.webp" alt="Logo">
             <ul>
                 <li>
                     <a href="./index.html">Dashboard</a>
@@ -60,7 +60,7 @@
                     <h1 class="text">Todo List</h1>
                     <div>
                         <input class="inputSearch" placeholder="Search Name...">
-                        <select class="inputSearch selectStatus" name="" id="">
+                        <select class="selectStatus" name="" id="">
                             <option value="all">All</option>
                             <option value="active">Active</option>
                             <option value="inactive">Inactive</option>
@@ -72,6 +72,7 @@
             </section>
         </main>
     </main>
+    <!-- info -->
     <dialog class="modalInfo">
         <div class="modalInfoContent">
 
@@ -91,54 +92,56 @@
             </div>
         </div>
     </dialog>
+    <!-- add -->
     <dialog class="modalAdd">
         <div class="modalAddContent">
             <!-- <div class="addContent"> -->
 
-                <form class="form formAdd">
-                    <p class="form-title">Add New User</p>
-                    <div class="input-container">
-                        <input class="inputAdd inputAddName" name="name" type="text" placeholder="Name">
-                        <span>
-                        </span>
-                    </div>
-                    <div class="input-container">
-                        <select name="status" class="inputAdd selectAddStatus" value="">
-                            <option value="active">Active</option>
-                            <option value="inactive">Inactive</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="submit btnAddUser">
-                        Add
-                    </button>
-                    </p>
-                </form>
+            <form class="form formAdd">
+                <p class="form-title">Add New User</p>
+                <div class="input-container">
+                    <input class="inputAdd inputAddName" name="name" type="text" placeholder="Name">
+                    <span>
+                    </span>
+                </div>
+                <div class="input-container">
+                    <select name="status" class="inputAdd selectAddStatus" value="">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit btnAddUser">
+                    Add
+                </button>
+                </p>
+            </form>
 
             <!-- </div> -->
         </div>
     </dialog>
+    <!-- edit -->
     <dialog class="modalEdit">
         <div class="modalAddContent">
             <!-- <div class="addContent"> -->
 
-                <form class="form formEdit">
-                    <p class="form-title">Edit User</p>
-                    <div class="input-container">
-                        <input class="inputAdd inputEditName" name="name" type="text" placeholder="Name">
-                        <span>
-                        </span>
-                    </div>
-                    <div class="input-container">
-                        <select name="status" class="inputAdd selectEditStatus" value="">
-                            <option value="active">Active</option>
-                            <option value="inactive">Inactive</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="submit btnEditUser">
-                        Add
-                    </button>
-                    </p>
-                </form>
+            <form class="form formEdit">
+                <p class="form-title">Edit User</p>
+                <div class="input-container">
+                    <input class="inputAdd inputEditName" name="name" type="text" placeholder="Name">
+                    <span>
+                    </span>
+                </div>
+                <div class="input-container">
+                    <select name="status" class="inputAdd selectEditStatus" value="">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit btnEditUser">
+                    Add
+                </button>
+                </p>
+            </form>
 
             <!-- </div> -->
         </div>

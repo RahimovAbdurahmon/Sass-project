@@ -19,13 +19,13 @@
   padding: 16px 32px;
 }
 .saiderbar img {
-  max-width: 150px;
-  margin: auto;
+  max-width: 100px;
+  margin: 0px 20px;
 }
 .saiderbar ul {
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  margin-top: 0px;
 }
 .saiderbar ul li {
   font-size: 20px;
@@ -161,7 +161,7 @@
 }
 
 /* From Uiverse.io by shadowmurphy */
-.inputSearch {
+.inputSearch, .selectStatus {
   border: 2px solid transparent;
   width: 15em;
   height: 2.5em;
@@ -173,8 +173,9 @@
   transition: all 0.5s;
 }
 
-.inputSearch:hover,
-.inputSearch:focus {
+.inputSearch:hover, .selectStatus:hover,
+.inputSearch:focus,
+.selectStatus:focus {
   border: 2px solid #4a9dec;
   box-shadow: 0px 0px 0px 7px rgba(74, 157, 236, 0.2);
   background-color: white;
@@ -183,6 +184,13 @@
 .selectStatus {
   width: 100px;
   font-size: 16px;
+}
+
+.selectStatus:hover,
+.selectStatus:focus {
+  border: 2px solid #4a9dec;
+  box-shadow: 0px 0px 0px 7px rgba(74, 157, 236, 0.2);
+  background-color: white;
 }
 
 .btnAddNew {
