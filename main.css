@@ -65,9 +65,20 @@
   padding: 20px;
   background-color: rgba(126, 161, 158, 0.9411764706);
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
+}
+.navbar .right {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+  font-size: 25px;
+}
+.navbar .right i:hover {
+  color: rgb(46, 46, 46);
+  cursor: pointer;
 }
 
 .modalInfo {

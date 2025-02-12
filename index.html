@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <main id="content">
@@ -31,8 +32,24 @@
         </aside>
         <main class="main">
             <nav class="navbar">
-                <button class="login">Login</button>
-                <button class="sign">Sign Up</button>
+                <div class="group">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon">
+                        <g>
+                            <path
+                                d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+                            </path>
+                        </g>
+                    </svg>
+
+                    <input id="query" class="input" type="search" placeholder="Search..." name="searchbar" />
+                </div>
+                <aside class="right">
+
+                    <i class="fa-solid fa-language"></i>
+                    <i class="fa-regular fa-envelope"></i>
+                    <i class="fa-solid fa-circle-user"></i>
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </aside>
             </nav>
             <h1>Dashboard</h1>
         </main>

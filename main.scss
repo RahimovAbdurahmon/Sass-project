@@ -68,9 +68,20 @@ $activeColor: #b5ece6;
     padding: 20px;
     background-color: $primaryColor;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
+    .right{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 10px;
+        font-size: 25px;
+        i:hover{
+            color: rgb(46, 46, 46);
+            cursor: pointer;
+        }
+    }
 }
 
 .modalInfo{
