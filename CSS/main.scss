@@ -36,6 +36,9 @@
         // background-color: lightgray;
         border-radius: 10px;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 20px;
       }
       li:hover {
         background-color: $activeColor;
@@ -75,8 +78,8 @@
       display: flex;
       align-items: center;
       justify-content: end;
-      gap: 10px;
-      font-size: 25px;
+      gap: 15px;
+      font-size: 27px;
       i:hover {
         color: rgb(46, 46, 46);
         cursor: pointer;
