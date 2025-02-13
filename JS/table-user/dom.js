@@ -9,13 +9,6 @@ const btnEdit = document.querySelector(".btnEdit");
 
 // delete
 btnDelete.onclick = () => {
-  //   Swal.fire({
-  //     title: "Success!",
-  //     text: "User Deleted",
-  //     icon: "success",
-  //     timer: 10000,
-  //     showConfirmButton: true,
-  //   });
   Swal.fire({
     title: "Do you want to delete the User?",
     showDenyButton: false,
@@ -23,11 +16,9 @@ btnDelete.onclick = () => {
     confirmButtonText: "Delete",
     denyButtonText: `Don't save`,
   }).then((result) => {
-    /* Read more about isConfirmed, isDenied below */
     if (result.isConfirmed) {
       Swal.fire("Deleted!", "", "success");
-      console.log(idx);
-      deleteUser(idx);
+      deleteUser(user.id);
       popover.style.display = "none";
     } else if (result.isDenied) {
       Swal.fire("Changes are not saved", "", "info");
@@ -35,7 +26,65 @@ btnDelete.onclick = () => {
   });
 };
 
-let idx = null;
+// info
+function openSidebar(user) {
+  Swal.fire({
+    // title: "About User",
+    html: `
+    <div class="InfoUserModal">
+    
+            <img src="${user.avatar}" class='infoAvatar' alt="avatar image">
+            <h1 class="infoName">${user.name}</h1>
+            <p class="infoEmail">${user.email}</p>
+            <hr>
+            <div>
+            <aside class="left">
+            <h3>
+            <i class="fa-solid fa-city"></i>
+            City
+            </h3>
+            <h3>
+            <i class="fa-solid fa-clock"></i>
+            status
+            </h3>
+            <h3>
+            <i class="fa-solid fa-phone"></i>
+            Phone
+            </h3>
+            </aside>
+            <aside class="right">
+            <h3 class="infoCity">${user.city}</h3>
+            <h3 class=${
+              user.isComplete ? "infoStatusActive" : "infoStatusInactive"
+            }>${user.isComplete ? "Active" : "Inactive"}</h3>
+            <h3 class="infoPhone">${user.phone}</h3>
+            </aside>
+            </div>
+            <hr>
+            <div class="infoActions">
+            <button class="btnInfoDelete">Delete</button>
+            <button>Edit</button>
+            </div>
+            </div>
+        `,
+    showConfirmButton: false,
+    showCloseButton: true,
+    // width: "300px",
+    // padding: "20px",
+    customClass: {
+      popup: "swal2-sidebar",
+    },
+    backdrop: true /* No overlay */,
+    didOpen: () => {
+      document.querySelector(".swal2-popup").classList.add("swal2-show");
+    },
+  });
+}
+btnInfo.onclick = () => {
+  openSidebar(user);
+};
+
+let user = null;
 const getData = (data) => {
   tableBody.innerHTML = "";
   data.forEach((elem) => {
@@ -89,7 +138,7 @@ const getData = (data) => {
       const top = rect.bottom + window.scrollY - 20;
       const left = rect.right + window.scrollX - 170;
 
-      idx = elem.id;
+      user = elem;
 
       popover.style.top = `${top}px`;
       popover.style.left = `${left}px`;

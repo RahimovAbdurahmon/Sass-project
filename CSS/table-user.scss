@@ -293,3 +293,70 @@ button:active .button_top {
     background: #f0f0f0;
     transition: all 0.1s linear;
 }
+
+.swal2-popup.swal2-sidebar {
+    position: fixed !important;
+    top: 0;
+    right: -100%; /* Initially hidden */
+    height: 100vh;
+    width: 400px;
+    margin: 0;
+    background: white;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out; /* Slide-in effect */
+}
+
+/* When the modal is opened, slide it into view */
+.swal2-popup.swal2-sidebar.swal2-show {
+    right: 0;
+}
+
+.infoAvatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.infoName{
+    font-size: 30px;
+}
+.infoEmail{
+    font-size: 15px;
+    color: gray;
+    margin: 10px auto;
+}
+.infoStatusActive{
+    padding: 5px 20px;
+    background-color: rgb(3, 99, 3);
+    color: white;
+    border-radius: 5px;
+}
+.infoStatusInactive{
+    padding: 5px 20px;
+    background-color: rgb(89, 89, 90);
+    color: white;
+    border-radius: 5px;
+}
+.InfoUserModal{
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0;
+    }
+    .left{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: start;
+        align-items: start
+    }
+    .right{
+        @extend .left;
+        gap: 5px;
+        align-items: end;
+    }
+    .infoActions{
+        justify-content: start;
+        gap: 10px;
+    }
+}
