@@ -1,4 +1,4 @@
-import { addUser, deleteUser, editUser } from "./api.js";
+import { addUser, deleteUser, editUser, searchGet, selectStatus } from "./api.js";
 
 let tableBody = document.querySelector(".tableBody");
 
@@ -17,6 +17,20 @@ const btnAddCancel = document.querySelector(".btnAddCancel");
 const modalEditUser = document.querySelector(".modalEditUser");
 const formEdit = document.querySelector(".formEdit");
 const btnEditCancel = document.querySelector(".btnEditCancel");
+
+// filter
+const inpSearch = document.querySelector(".inpSearch")
+const selStatus = document.querySelector(".selStatus")
+
+// filter search
+inpSearch.oninput = () => {
+  searchGet(inpSearch.value)
+}
+
+// filter select
+selStatus.onclick = () => {
+  selectStatus(selStatus.value)
+}
 
 // delete
 function deleteUserPermission() {
@@ -90,9 +104,10 @@ function openSidebar(user) {
       document.querySelector(".swal2-popup").classList.add("swal2-show");
 
       // ✅ Add event listeners dynamically
-      // document.querySelector(".btnInfoDelete").addEventListener("click", () => {
-      //   Swal.fire("Deleted!", "User has been deleted.", "success");
-      // });
+      document.querySelector(".btnInfoDelete").addEventListener("click", () => {
+        Swal.close();
+        deleteUserPermission();
+      });
 
       document.querySelector(".btnInfoEdit").addEventListener("click", () => {
         Swal.close()
@@ -101,28 +116,9 @@ function openSidebar(user) {
     },
   });
 }
-
 btnInfo.onclick = () => {
   openSidebar(user);
 };
-// info Delete
-document.addEventListener("click", function (event) {
-  if (
-    event.target.classList.contains("btnInfoDelete") ||
-    event.target.classList.contains("svgDelete")
-  ) {
-    deleteUserPermission();
-  }
-});
-// info Edit
-// document.addEventListener("click", function (event) {
-//   if (
-//     event.target.classList.contains("btnInfoEdit") ||
-//     event.target.classList.contains("svgEdit")
-//   ) {
-//     editModal();
-//   }
-// });
 
 // add
 btnAddNew.onclick = () => {
@@ -235,6 +231,12 @@ formEdit.onsubmit = (e) => {
 let user = null;
 const getData = (data) => {
   tableBody.innerHTML = "";
+  if (data.length === 0) {
+    let errorText = document.createElement("h1");
+    errorText.textContent = "Data is empty";
+    tableBody.appendChild(errorText);
+    return;
+  }
   data.forEach((elem) => {
     let tr = document.createElement("tr");
     tr.classList.add("tr");
@@ -293,15 +295,6 @@ const getData = (data) => {
       popover.style.left = `${left}px`;
       popover.style.display =
         popover.style.display === "block" ? "none" : "block";
-
-      document.addEventListener("click", function (event) {
-        if (
-          !actionIcon.contains(event.target) &&
-          !popover.contains(event.target)
-        ) {
-          popover.style.display = "none";
-        }
-      });
     };
 
     nameContent.append(name, email);
@@ -312,5 +305,11 @@ const getData = (data) => {
     tableBody.appendChild(tr);
   });
 };
+
+document.addEventListener("click", function (event) {
+  if (!document.querySelector(".actionIcon").contains(event.target) && !popover.contains(event.target)) {
+    popover.style.display = "none";
+  }
+});
 
 export default getData;
