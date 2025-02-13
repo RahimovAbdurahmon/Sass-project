@@ -1,4 +1,4 @@
-import { addUser, deleteUser } from "./api.js";
+import { addUser, deleteUser, editUser } from "./api.js";
 
 let tableBody = document.querySelector(".tableBody");
 
@@ -8,13 +8,18 @@ const btnDelete = document.querySelector(".btnDelete");
 const btnEdit = document.querySelector(".btnEdit");
 
 // add
-const btnAddNew = document.querySelector(".btnAddNew")
-const modalAddUser = document.querySelector(".modalAddUser")
-const formAdd = document.querySelector(".formAdd")
-const btnAddCancel = document.querySelector(".btnAddCancel")
+const btnAddNew = document.querySelector(".btnAddNew");
+const modalAddUser = document.querySelector(".modalAddUser");
+const formAdd = document.querySelector(".formAdd");
+const btnAddCancel = document.querySelector(".btnAddCancel");
+
+// edit
+const modalEditUser = document.querySelector(".modalEditUser");
+const formEdit = document.querySelector(".formEdit");
+const btnEditCancel = document.querySelector(".btnEditCancel");
 
 // delete
-function deleteUserPermission(){
+function deleteUserPermission() {
   Swal.fire({
     title: "Do you want to delete the User?",
     showDenyButton: false,
@@ -28,7 +33,7 @@ function deleteUserPermission(){
         icon: "success",
         draggable: true,
         showConfirmButton: false,
-        timer: 1000
+        timer: 1000,
       });
       deleteUser(user.id);
       popover.style.display = "none";
@@ -38,7 +43,7 @@ function deleteUserPermission(){
   });
 }
 btnDelete.onclick = () => {
- deleteUserPermission()
+  deleteUserPermission();
 };
 
 // info
@@ -102,32 +107,35 @@ btnInfo.onclick = () => {
   openSidebar(user);
 };
 document.addEventListener("click", function (event) {
-  if (event.target.classList.contains("btnInfoDelete") || event.target.classList.contains("svg")) {
-      deleteUserPermission();
+  if (
+    event.target.classList.contains("btnInfoDelete") ||
+    event.target.classList.contains("svg")
+  ) {
+    deleteUserPermission();
   }
 });
 
 // add
-btnAddNew.onclick = () => { 
+btnAddNew.onclick = () => {
   console.log("hello");
   modalAddUser.style.display = "flex";
-}
+};
 function closeModalAdd(e) {
-  console.log(e.target);
-  console.log("Fasd");
-  
-  
-  if (e.target === modalAddUser || e.target == btnAddCancel || e.target == formAdd) {
-    modalAddUser.style.display = "none"
+  if (
+    e.target === modalAddUser ||
+    e.target == btnAddCancel ||
+    e.target == formAdd
+  ) {
+    modalAddUser.style.display = "none";
     formAdd.reset();
   }
 }
 btnAddCancel.onclick = (e) => {
-  closeModalAdd(e)
-}
+  closeModalAdd(e);
+};
 modalAddUser.onclick = (event) => {
-  closeModalAdd(event)
-}
+  closeModalAdd(event);
+};
 formAdd.onsubmit = (event) => {
   event.preventDefault();
   const newUser = {
@@ -137,18 +145,81 @@ formAdd.onsubmit = (event) => {
     avatar: formAdd["avatar"].value,
     city: formAdd["city"].value,
     phone: formAdd["phone"].value,
-    isComplete: formAdd["status"].value == "active" ? true : false
-  }
+    isComplete: formAdd["status"].value == "active" ? true : false,
+  };
   addUser(newUser);
-  closeModalAdd(event)
+  closeModalAdd(event);
   Swal.fire({
     title: "User Added",
     icon: "success",
     draggable: true,
     showConfirmButton: false,
-    timer: 1000
+    timer: 1000,
+  });
+};
+
+// edit
+btnEdit.onclick = () => {
+  console.log(user);
+
+  modalEditUser.style.display = "flex";
+  formEdit["name"].value = user.name;
+  formEdit["email"].value = user.email;
+  formEdit["avatar"].value = user.avatar;
+  formEdit["city"].value = user.city;
+  formEdit["phone"].value = user.phone;
+  formEdit["status"].value = user.isComplete ? "active" : "inactive";
+};
+function closeModalEdit(e) {
+  if (
+    e.target === modalEditUser ||
+    e.target == btnEditCancel ||
+    e.target == formEdit
+  ) {
+    modalEditUser.style.display = "none";
+    formEdit.reset();
+  }
+}
+modalEditUser.onclick = (e) => {
+  closeModalEdit(e);
+};
+function editUserPermissin(e) {
+  e.preventDefault();   
+  console.log();
+  Swal.fire({
+    title: "Do you want to Edit the User?",
+    showDenyButton: false,
+    showCancelButton: true,
+    confirmButtonText: "Edit",
+    denyButtonText: `Cancel`,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "User Edited",
+        icon: "success",
+        draggable: true,
+        showConfirmButton: false,
+        timer: 1000,
+      });
+      const newEditedUser = {
+        id: Date.now(),
+        name: formEdit["name"].value,
+        email: formEdit["email"].value,
+        avatar: formEdit["avatar"].value,
+        city: formEdit["city"].value,
+        phone: formEdit["phone"].value,
+        isComplete: formEdit["status"].value == "active" ? true : false,
+      };
+      editUser(user.id, newEditedUser);
+      closeModalEdit(e);
+    } else if (result.isDenied) {
+      Swal.fire("Changes are not saved", "", "info");
+    }
   });
 }
+formEdit.onsubmit = (e) => {
+  editUserPermissin(e);
+};
 
 // get
 let user = null;
@@ -165,7 +236,7 @@ const getData = (data) => {
 
     let avatar = document.createElement("img");
     avatar.src = elem.avatar;
-    avatar.alt = "avatar"
+    avatar.alt = "avatar";
     avatar.classList.add("avatar");
 
     let name = document.createElement("h2");

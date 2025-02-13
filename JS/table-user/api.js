@@ -32,5 +32,15 @@ async function addUser(newUser) {
     }
 }
 
-export { deleteUser, addUser };
+// edit
+async function editUser(id, newEditedUser) {
+    try {
+        let { data } = await axios.put(`${API}/${id}`, newEditedUser)
+        get();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export { deleteUser, addUser, editUser };
 export default get;

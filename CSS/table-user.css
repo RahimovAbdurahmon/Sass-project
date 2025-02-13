@@ -461,7 +461,7 @@ button:active .button_top {
   text-transform: uppercase;
 }
 
-.btnAddCancel {
+.btnAddCancel, .btnEditCancel {
   background-color: gray;
 }
 
@@ -490,11 +490,11 @@ button:active .button_top {
   align-items: center;
 }
 
-.formAdd {
+.formAdd, .formEdit {
   padding-right: 30px;
 }
 
-.modalAddUser {
+.modalAddUser, .modalEditUser {
   width: 100%;
   height: 100vh;
   border: none;
@@ -502,7 +502,7 @@ button:active .button_top {
   margin: 0;
   position: fixed;
   top: 0;
-  background-color: rgba(43, 41, 41, 0.14);
+  background-color: rgba(74, 74, 74, 0.664);
   display: flex;
   justify-content: center;
   align-items: center;
