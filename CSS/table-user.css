@@ -327,6 +327,9 @@ button:active .button_top {
   border-radius: 5px;
 }
 
+.InfoUserModal {
+  /* From Uiverse.io by vinodjangid07 */
+}
 .InfoUserModal div {
   display: flex;
   align-items: center;
@@ -347,4 +350,53 @@ button:active .button_top {
 .InfoUserModal .infoActions {
   justify-content: start;
   gap: 10px;
+}
+.InfoUserModal .Btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100px;
+  height: 40px;
+  border: none;
+  padding: 0px 20px;
+  background-color: rgb(7, 81, 165);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px rgb(7, 81, 165);
+  transition-duration: 0.3s;
+}
+.InfoUserModal .svg {
+  width: 13px;
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  fill: white;
+  transition-duration: 0.3s;
+}
+.InfoUserModal .Btn:hover {
+  color: transparent;
+}
+.InfoUserModal .Btn:hover svg {
+  right: 43%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  transition-duration: 0.3s;
+}
+.InfoUserModal .Btn:active {
+  transform: translate(3px, 3px);
+  --button_outline_color: white;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 0px rgb(7, 81, 165);
+}
+.InfoUserModal .btnInfoDelete {
+  width: 120px;
+  background-color: rgb(117, 5, 5);
+  box-shadow: 5px 5px 0px rgb(117, 5, 5);
+}
+.InfoUserModal .btnInfoDelete:active {
+  box-shadow: 2px 2px 0px rgb(117, 5, 5);
 }/*# sourceMappingURL=table-user.css.map */
