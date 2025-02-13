@@ -1,4 +1,4 @@
-import { deleteUser } from "./api.js";
+import { addUser, deleteUser } from "./api.js";
 
 let tableBody = document.querySelector(".tableBody");
 
@@ -6,6 +6,12 @@ const popover = document.getElementById("popover");
 const btnInfo = document.querySelector(".btnInfo");
 const btnDelete = document.querySelector(".btnDelete");
 const btnEdit = document.querySelector(".btnEdit");
+
+// add
+const btnAddNew = document.querySelector(".btnAddNew")
+const modalAddUser = document.querySelector(".modalAddUser")
+const formAdd = document.querySelector(".formAdd")
+const btnAddCancel = document.querySelector(".btnAddCancel")
 
 // delete
 function deleteUserPermission(){
@@ -17,7 +23,13 @@ function deleteUserPermission(){
     denyButtonText: `Don't save`,
   }).then((result) => {
     if (result.isConfirmed) {
-      Swal.fire("Deleted!", "", "success");
+      Swal.fire({
+        title: "User Deleted",
+        icon: "success",
+        draggable: true,
+        showConfirmButton: false,
+        timer: 1000
+      });
       deleteUser(user.id);
       popover.style.display = "none";
     } else if (result.isDenied) {
@@ -95,6 +107,50 @@ document.addEventListener("click", function (event) {
   }
 });
 
+// add
+btnAddNew.onclick = () => { 
+  console.log("hello");
+  modalAddUser.style.display = "flex";
+}
+function closeModalAdd(e) {
+  console.log(e.target);
+  console.log("Fasd");
+  
+  
+  if (e.target === modalAddUser || e.target == btnAddCancel || e.target == formAdd) {
+    modalAddUser.style.display = "none"
+    formAdd.reset();
+  }
+}
+btnAddCancel.onclick = (e) => {
+  closeModalAdd(e)
+}
+modalAddUser.onclick = (event) => {
+  closeModalAdd(event)
+}
+formAdd.onsubmit = (event) => {
+  event.preventDefault();
+  const newUser = {
+    id: Date.now(),
+    name: formAdd["name"].value,
+    email: formAdd["email"].value,
+    avatar: formAdd["avatar"].value,
+    city: formAdd["city"].value,
+    phone: formAdd["phone"].value,
+    isComplete: formAdd["status"].value == "active" ? true : false
+  }
+  addUser(newUser);
+  closeModalAdd(event)
+  Swal.fire({
+    title: "User Added",
+    icon: "success",
+    draggable: true,
+    showConfirmButton: false,
+    timer: 1000
+  });
+}
+
+// get
 let user = null;
 const getData = (data) => {
   tableBody.innerHTML = "";
@@ -109,6 +165,7 @@ const getData = (data) => {
 
     let avatar = document.createElement("img");
     avatar.src = elem.avatar;
+    avatar.alt = "avatar"
     avatar.classList.add("avatar");
 
     let name = document.createElement("h2");

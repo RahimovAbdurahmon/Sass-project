@@ -58,6 +58,11 @@ const infoUser = (id) => {
 btnAddNew.onclick = () => {
   modalAdd.showModal();
 };
+modalAdd.onclick = (event) => {
+  if (event.target === modalAdd) {
+    modalAdd.close()
+  }
+}
 formAdd.onsubmit = (e) => {
   e.preventDefault();
   let newUser = {
