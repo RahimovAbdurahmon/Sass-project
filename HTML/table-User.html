@@ -168,7 +168,7 @@
                 <input required type="text" name="city" placeholder="City...">
             </div>
             <div class="input-container">
-                <input required type="number" name="phone" placeholder="Phone...">
+                <input required type="tel" name="phone" placeholder="Phone...">
             </div>
             <div class="input-container">
                 <select name="status" id="status">
@@ -187,6 +187,42 @@
             </div>
         </form>
     </div>  
+    <!-- modal edit -->
+    <div class="modalEditUser">
+        <form class="form formEdit">
+            <p class="form-title">Add New User</p>
+            <div class="input-container">
+                <input required type="text" name="name" placeholder="Name...">
+            </div>
+            <div class="input-container">
+                <input required type="email" name="email" placeholder="Email...">
+            </div>
+            <div class="input-container">
+                <input required type="text" name="avatar" placeholder="Avatar...">
+            </div>
+            <div class="input-container">
+                <input required type="text" name="city" placeholder="City...">
+            </div>
+            <div class="input-container">
+                <input required type="tel" name="phone" placeholder="Phone...">
+            </div>
+            <div class="input-container">
+                <select name="status" id="status">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+            </div>
+            <div class="addButtons">
+
+                <button type="submit" class="submit btnEditUser">
+                    Save
+                </button>
+                <button type="button" class="submit btnEditCancel">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script> -->
