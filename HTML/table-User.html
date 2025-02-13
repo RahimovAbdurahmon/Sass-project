@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/CSS/styles.css">
+    <!-- <link rel="stylesheet" href="/CSS/styles.css"> -->
     <link rel="stylesheet" href="/CSS/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/CSS/table-user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
+
 <body>
     <main id="content">
         <aside class="saiderbar">
@@ -39,7 +45,7 @@
                 </li>
                 <li>
                     <i class="fa-solid fa-gear"></i>
-                    <a  href="./settings.html">Settings</a>
+                    <a href="./settings.html">Settings</a>
                 </li>
                 <li>
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -58,7 +64,8 @@
                         </g>
                     </svg>
 
-                    <input id="query" class="inputSearchGlobal" type="search" placeholder="Search..." name="searchbar" />
+                    <input id="query" class="inputSearchGlobal" type="search" placeholder="Search..."
+                        name="searchbar" />
                 </div>
                 <aside class="right">
                     <a href="./notifications.html">
@@ -76,10 +83,77 @@
                 </aside>
             </nav>
             <section id="mainContent">
-                <h1>Table User</h1>
+                <h2>User List</h2>
+                <nav class="navUserList">
+                    <button class="btnAddNew">
+                        <span class="button_top"> Add New User </span>
+                    </button>
+                    <aside class="right">
+                        <div class="coolinput">
+                            <label for="input" class="text">Name:</label>
+                            <input type="text" placeholder="Search here..." name="input" class="input">
+                        </div>
+                        <div class="coolinput">
+                            <label for="input" class="text">Status:</label>
+                            <select name="" class="select">
+                                <option value="all">All Staus</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </aside>
+                </nav>
+                <table class="table">
+                    <thead class="">
+                        <th class="thName">
+                            <i class="fa-solid fa-user"></i>
+                            Name
+                        </th>
+                        <th class="thCity">
+                            <i class="fa-solid fa-city"></i>
+                            City
+                        </th>
+                        <th class="thStatus">
+                            <i class="fa-solid fa-clock"></i>
+                            Status
+                        </th>
+                        <th class="thPhone">
+                            <i class="fa-solid fa-phone"></i>
+                            Phone
+                        </th>
+                        <th class="thAction"></th>
+                    </thead>
+                    <tbody class="tableBody"></tbody>
+                </table>
             </section>
         </main>
     </main>
+    <div class="popover" id="popover">
+        <ul>
+            <li>
+                <button class="btnInfo">
+                    <i class="fa-solid fa-user"></i>
+                    View Profile
+                </button>
+            </li>
+            <li>
+                <button class="btnDelete">
+                    <i class="fa-solid fa-trash"></i>
+                    Delete
+                </button>
+            </li>
+            <li>
+                <button class="btnEdit">
+                    <i class="fa-solid fa-pen"></i>
+                    Edit
+                </button>
+            </li>
+        </ul>
+    </div>
 </body>
-<script src="./main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/JS/table-user/main.js" type="module"></script>
+
 </html>
