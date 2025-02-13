@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body>
@@ -128,6 +128,7 @@
             </section>
         </main>
     </main>
+    <!-- popover -->
     <div class="popover" id="popover">
         <ul>
             <li>
@@ -150,9 +151,45 @@
             </li>
         </ul>
     </div>
+    <!-- modal add -->
+    <div class="modalAddUser">
+        <form class="form formAdd">
+            <p class="form-title">Add New User</p>
+            <div class="input-container">
+                <input required type="text" name="name" placeholder="Name...">
+            </div>
+            <div class="input-container">
+                <input required type="email" name="email" placeholder="Email...">
+            </div>
+            <div class="input-container">
+                <input required type="text" name="avatar" placeholder="Avatar...">
+            </div>
+            <div class="input-container">
+                <input required type="text" name="city" placeholder="City...">
+            </div>
+            <div class="input-container">
+                <input required type="number" name="phone" placeholder="Phone...">
+            </div>
+            <div class="input-container">
+                <select name="status" id="status">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+            </div>
+            <div class="addButtons">
+
+                <button type="submit" class="submit btnAddUser">
+                    Add
+                </button>
+                <button type="button" class="submit btnAddCancel">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>  
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/JS/table-user/main.js" type="module"></script>
 

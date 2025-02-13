@@ -22,5 +22,15 @@ async function deleteUser(id) {
     }
 }
 
-export { deleteUser };
+// add
+async function addUser(newUser) {
+    try {
+        const { data } = await axios.post(API, newUser)
+        get()
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export { deleteUser, addUser };
 export default get;
