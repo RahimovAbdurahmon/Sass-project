@@ -29,34 +29,40 @@
   }
 }
 
-.box {
-  max-width: 1100px;
-  margin: auto;
-  .productItem {
-    border: 1px solid gray;
-    width: 60%;
-    display: flex;
-    height: 30vh;
-    .productImg {
-      width: 50%;
-      height: 100%;
-      filter: brightness(80%);
-    }
-    .contentProduct {
-      padding: 10px 20px;
-    }
-  }
-}
+// .box {
+//   max-width: 1100px;
+//   margin: auto;
+//   .productItem {
+//     border: 1px solid gray;
+//     width: 60%;
+//     display: flex;
+//     height: 30vh;
+//     .productImg {
+//       width: 50%;
+//       height: 100%;
+//       filter: brightness(80%);
+//     }
+//     .contentProduct {
+//       padding: 10px 20px;
+//     }
+//   }
+// }
 
 .box {
   max-width: 1100px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
   .productItem {
-    grid-area: auto;
+    width: 60%;
+    height: 220px;
+    display: flex;
     border-radius: 10px;
     border: 1px solid rgb(235, 235, 235);
     .productImg {
-      width: 80%;
+      width: 40%;
       height: 100%;
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
@@ -68,8 +74,27 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      .productName {
-        font-size: 20px;
+      .navProductItem{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .productName {
+          font-size: 20px;
+        }
+        .fa-trash-can{
+          border: 2px solid rgb(230, 229, 229);
+          padding: 10px;
+          border-radius: 5px;
+          color: gray;
+          font-size: 20px;
+          transition: all 0.1s linear;
+        }
+        .fa-trash-can:hover{
+          color: red;
+          background-color: rgb(252, 240, 240);
+          transition: all 0.1s linear;
+          cursor: pointer;
+        }
       }
       .productDescription {
         font-size: 13px;
@@ -122,14 +147,14 @@
                 color: white;
                 border-top-right-radius: 5px;
                 border-bottom-right-radius: 5px;
-                cursor: pointer;
+                cursor: no-drop;
             }
             .fa-plus:hover{
                 background-color: rgb(5, 132, 5);
                 transition: all 0.2s linear;
             }
             p{
-                padding: 3px 20px;
+                padding: 2.6px 20px;
                 border: 1px solid lightgray;
             }
         }
