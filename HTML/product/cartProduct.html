@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/CSS/styles.css">
     <link rel="stylesheet" href="/CSS/main.css">
-    <link rel="stylesheet" href="/CSS/product/product.css">
+    <link rel="stylesheet" href="/CSS/product/cartProduct.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -85,16 +85,42 @@
                 <nav class="navProduct">
                     <h2>
                         <a href="./product.html">Product</a>
-                        &nbsp;<i class="fa-solid fa-angle-right"></i>&nbsp; Cart Product</h2>
+                        &nbsp;<i class="fa-solid fa-angle-right"></i>&nbsp; Cart Product
+                    </h2>
                     <div class="cart-container">
                         <p class="cart-amount">0</p>
                         <i class="fa-solid fa-cart-shopping"></i>
                     </div>
                 </nav>
+                <section class="box" id="box">
+                    <article class="productItem">
+                        <img class="productImg" src="https://myreact.ru/storage/catalog/products/V3Rfux.jpg" alt="">
+                        <div class="contentProduct">
+                            <h3 class="productName">Nike Jordan</h3>
+                            <p class="productDescription">Nike Air Jordan 3 with hight quality and cheap price everyone
+                                can
+                                get
+                                and use it with happyness</p>
+                            <div class="discountedPricesesProduct">
+                                <p class="discountedPriceProduct">$ 2000</p>
+                                <h4 class="discontedPercentProduct">50 %</h4>
+                            </div>
+                            <div class="priceProductAddCart">
+                                <h4 class="priceProduct">$ 1000</h4>
+                                <div class="actionProducts">
+                                    <i class="fa-solid fa-minus"></i>
+                                    <p>0</p>
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
             </section>
         </main>
     </main>
 </body>
-<script src="./main.js"></script>
+<script src="/JS/product/productData.js"></script>
+<script src="/JS/product/cartProduct.js"></script>
 
 </html>
