@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/CSS/styles.css">
     <link rel="stylesheet" href="/CSS/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/CSS/product/product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <main id="content">
         <aside class="saiderbar">
-            <img src="../Images/logo.webp" alt="Logo">
+            <img src="/Images/logo.webp" alt="Logo">
             <ul>
                 <li>
                     <i class="fa-solid fa-chart-simple"></i>
                     <a href="./index.html">Dashboard</a>
                 </li>
-                <li>
+                <li class="active">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <a href="./product/product.html">Product</a>
+                    <a href="/HTML/product/product.html">Product</a>
                 </li>
                 <li>
                     <i class="fa-solid fa-table"></i>
@@ -29,9 +34,9 @@
                     <i class="fa-solid fa-list"></i>
                     <a href="./table-User.html">Table User</a>
                 </li>
-                <li class="active">
+                <li>
                     <i class="fa-solid fa-circle-user"></i>
-                    <a>Profile</a>
+                    <a href="./profile.html">Profile</a>
                 </li>
                 <li>
                     <i class="fa-solid fa-envelope"></i>
@@ -39,7 +44,7 @@
                 </li>
                 <li>
                     <i class="fa-solid fa-gear"></i>
-                    <a  href="./settings.html">Settings</a>
+                    <a href="./settings.html">Settings</a>
                 </li>
                 <li>
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -58,7 +63,8 @@
                         </g>
                     </svg>
 
-                    <input id="query" class="inputSearchGlobal" type="search" placeholder="Search..." name="searchbar" />
+                    <input id="query" class="inputSearchGlobal" type="search" placeholder="Search..."
+                        name="searchbar" />
                 </div>
                 <aside class="right">
                     <a href="./notifications.html">
@@ -76,10 +82,19 @@
                 </aside>
             </nav>
             <section id="mainContent">
-                <h1>Profile</h1>
+                <nav class="navProduct">
+                    <h2>
+                        <a href="./product.html">Product</a>
+                        &nbsp;<i class="fa-solid fa-angle-right"></i>&nbsp; Cart Product</h2>
+                    <div class="cart-container">
+                        <p class="cart-amount">0</p>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                </nav>
             </section>
         </main>
     </main>
 </body>
 <script src="./main.js"></script>
+
 </html>

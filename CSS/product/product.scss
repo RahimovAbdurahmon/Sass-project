@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.navProduct{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 0 20px 0;
+    .cart-container{
+        background-color: #7ea19e;
+        padding: 10px;
+        font-size: 30px;
+        border-radius: 10px;
+        position: relative;
+        p{
+            position: absolute;
+            font-size: 20px;
+            color: white;
+            padding: 1px 3px;
+            border-radius: 5px;
+            background-color: red;
+            top: -10px;
+            right: -5px;
+        }
+    }
+}
