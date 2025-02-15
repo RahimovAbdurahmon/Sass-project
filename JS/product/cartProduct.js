@@ -6,7 +6,6 @@ let basket = JSON.parse(localStorage.getItem("productData"))
 function getCartItem() {
     
     if (basket.length !== 0) {
-        console.log("fsdafsd");
         return (box.innerHTML = basket.map((elem) => {
             let { id, item } = elem;
             let search = product.find((elem) => elem.id === id)
@@ -26,9 +25,9 @@ function getCartItem() {
                     <div class="priceProductAddCart">
                         <h4 class="priceProduct">$ ${Math.round(search.price - (search.price * ( search.discouned / 100 )))}</h4>
                         <div class="actionProducts">
-                            <i class="fa-solid fa-minus"></i>
+                            <i class="fa-solid fa-minus" onclick="decrement(${elem.id})"></i>
                             <p>${item}</p>
-                            <i class="fa-solid fa-plus"></i>
+                            <i class="fa-solid fa-plus" onclick="increment(${elem.id})"></i>
                         </div>
                     </div>
                 </div>
@@ -37,7 +36,15 @@ function getCartItem() {
         }).join(""))
     }
     else{
-        box.innerHTML = ""
+        box.innerHTML = `
+        <div class="emptyCart">
+            <img src="https://media.istockphoto.com/id/1206806317/vector/shopping-cart-icon-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=1RRQJs5NDhcB67necQn1WCpJX2YMfWZ4rYi1DFKlkNA=" alt="">
+            <h2 class="textEmpryCart">Cart is Empty</h2>
+            <a href="./product.html">
+                <h4 class="btnBackHome">Back to Product</h4>
+            </a>
+        </div>
+        `
     }
 }
 getCartItem();
@@ -50,7 +57,31 @@ function removeItem(id) {
         getCartItem();
     }, 500);
     localStorage.setItem("productData", JSON.stringify(basket))
-    
+    setTimeout(() => {
+        getCartItem();
+    }, 1000);
+}
+// increment function
+const increment = (id) => {
+    let search = basket.find((elem) => elem.id === id)
+    search.item += 1
+    localStorage.setItem("productData", JSON.stringify(basket))
+    getCartItem()
+    calculation()
+}
+
+// decrement function
+const decrement = (id) => {
+    let search = basket.find((elem) => elem.id == id)
+    if (search.item == 0) {
+        document.querySelector(".fa-minus").style.cursor = "no-drop"
+        return "";
+    }
+    search.item -= 1;
+    basket = basket.filter((elem) => elem.item !== 0)
+    localStorage.setItem("productData", JSON.stringify(basket))
+    setTimeout(() => getCartItem(), 500)
+    calculation()
 }
 
 // calculation
