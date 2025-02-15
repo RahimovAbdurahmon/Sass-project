@@ -55,6 +55,25 @@
   flex-direction: column;
   gap: 20px;
   margin-bottom: 20px;
+  .emptyCart{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    img{
+      height: 400px;
+      object-fit: contain;
+    }
+    h4{
+      padding: 10px 30px;
+      background-color: #7ea19e;
+      color: black;
+      border-radius: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  }
   .productItem {
     width: 60%;
     height: 220px;
@@ -147,7 +166,7 @@
                 color: white;
                 border-top-right-radius: 5px;
                 border-bottom-right-radius: 5px;
-                cursor: no-drop;
+                cursor: pointer;
             }
             .fa-plus:hover{
                 background-color: rgb(5, 132, 5);
