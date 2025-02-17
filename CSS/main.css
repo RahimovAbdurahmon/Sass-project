@@ -75,8 +75,8 @@
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  z-index: 10;
   width: 78.1%;
-  z-index: 1;
 }
 .navbar .right {
   display: flex;
