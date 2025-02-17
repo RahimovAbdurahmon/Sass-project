@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/CSS/styles.css">
     <link rel="stylesheet" href="/CSS/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/CSS/notifications/notifications.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <main id="content">
         <aside class="saiderbar">
@@ -39,7 +44,7 @@
                 </li>
                 <li>
                     <i class="fa-solid fa-gear"></i>
-                    <a  href="./settings.html">Settings</a>
+                    <a href="./settings.html">Settings</a>
                 </li>
                 <li>
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -58,7 +63,8 @@
                         </g>
                     </svg>
 
-                    <input id="query" class="inputSearchGlobal" type="search" placeholder="Search..." name="searchbar" />
+                    <input id="query" class="inputSearchGlobal" type="search" placeholder="Search..."
+                        name="searchbar" />
                 </div>
                 <aside class="right">
                     <a href="./notifications.html">
@@ -76,10 +82,20 @@
                 </aside>
             </nav>
             <section id="mainContent">
-                <h1>Notifications</h1>
+                <div class="card">
+                    <i class="fa-solid fa-bell"></i>
+                    <h2 class="notificationTitle">No notification yet</h2>
+                    <button class="frutiger-button">
+                        <div class="inner">
+                            <div class="top-white"></div>
+                            <span class="text">Refresh</span>
+                        </div>
+                    </button>
+                </div>
             </section>
         </main>
     </main>
 </body>
-<script src="./main.js"></script>
+<script src="/JS/notifications.js"></script>
+
 </html>
