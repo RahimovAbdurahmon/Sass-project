@@ -439,7 +439,7 @@
   flex-direction: column;
   gap: 10px;
 }
-.mainContent .contentSettings .darkMode, .mainContent .contentSettings .locales {
+.mainContent .contentSettings .darkMode, .mainContent .contentSettings .emailNotifications .system, .mainContent .contentSettings .locales {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -449,10 +449,18 @@
   cursor: pointer;
   transition: all 0.2s linear;
 }
-.mainContent .contentSettings .darkMode:hover,
+.mainContent .contentSettings .darkMode:hover, .mainContent .contentSettings .emailNotifications .system:hover,
 .mainContent .contentSettings .locales:hover {
   scale: 1.02;
   transition: all 0.1s linear;
+}
+.mainContent .contentSettings .emailNotifications {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.mainContent .contentSettings .emailNotifications h1 {
+  font-size: 25px;
 }
 .radio-inputs {
   display: flex;
@@ -562,4 +570,58 @@
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+/* From Uiverse.io by gharsh11032000 */
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 2.8em;
+  height: 1.3em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #9fccfa;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.3em;
+  width: 1.3em;
+  inset: 0;
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.switch input:checked + .slider {
+  background: #0974f1;
+}
+
+.switch input:focus + .slider {
+  box-shadow: 0 0 1px #0974f1;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(1.5em);
 }/*# sourceMappingURL=settings.css.map */

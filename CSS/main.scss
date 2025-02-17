@@ -79,6 +79,7 @@ $activeColor: #b5ece6;
   align-items: center;
   // gap: 10px;
   position: fixed;
+  z-index: 10;
   width: 78.1%;
   .right {
     display: flex;
