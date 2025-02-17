@@ -1,6 +1,8 @@
 const box = document.querySelector("#box");
 let cart_amount = document.querySelector(".cart-amount")
 
+// window.location.href = "http://127.0.0.1:5501/HTML/index.html"
+
 let basket = JSON.parse(localStorage.getItem("productData")) || []
 console.log(basket);
 
@@ -57,7 +59,7 @@ function addToCart(id) {
 }
 
 function calculation() {
-    const sumProduct = basket.map((elem) => elem.item).reduce((a, b) => a + b, 0)
+    const sumProduct = basket.map((elem) => elem.item).length
     cart_amount.innerHTML = sumProduct;
 }
 console.log(calculation());
