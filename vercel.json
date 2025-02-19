@@ -1,11 +1,11 @@
 {
     "builds": [
       {
-        "src": "CSS/main.scss",
+        "src": "CSS/main.css",
         "use": "@vercel/static-build"
       },
       {
-        "src": "index.html",
+        "src": "HMTL/index.html",
         "use": "@vercel/static"
       }
     ]
